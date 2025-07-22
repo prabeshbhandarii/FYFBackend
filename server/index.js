@@ -4,10 +4,12 @@ import CategoryRouter from "./routers/CategoryRouter.js";
 import EventRouter from "./routers/EventRouter.js"
 import EnrollRouter from "./routers/EnrollRouter.js";
 import { limiter } from "./middlewares/RateLimiter.js";
+import cors from "cors";
 
 const app = express();
 const port = 3000;
 app.use(express.json())
+app.use(cors())
 
 app.use(limiter)
 app.get("/", (req, res) => {
